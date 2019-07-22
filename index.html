@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="WebRTC code samples">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+
+    <meta itemprop="description" content="Client-side WebRTC code samples">
+    <meta itemprop="name" content="WebRTC code samples">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <base target="_blank">
+    <title>Device Data Collection</title>
+
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        .none {
+            -webkit-filter: none;
+            filter: none;
+        }
+
+        .blur {
+            -webkit-filter: blur(3px);
+            filter: blur(3px);
+        }
+
+        .grayscale {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+        }
+
+        .invert {
+            -webkit-filter: invert(1);
+            filter: invert(1);
+        }
+
+        .sepia {
+            -webkit-filter: sepia(1);
+            filter: sepia(1);
+        }
+
+        button#snapshot {
+            margin: 0 10px 25px 0;
+            width: 110px;
+        }
+
+        video {
+            object-fit: cover;
+        }
+
+        div.select {
+            display: inline-block;
+            margin: 0 0 1em 0;
+        }
+
+        p.small {
+            font-size: 0.7em;
+        }
+
+        label {
+            width: 12em;
+            display: inline-block;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+        <h1> Sensor Data Collection : <span>Video Capture</span></h1>
+
+        <h2> Take Frame and Record Video with Button </h2>
+
+        <video id="gum" playsinline autoplay muted></video>
+
+        <br />
+        <div class="select">
+            <label for="videoSource">Video Source:</label><select id="videoSource"></select>
+        </div>
+        <br />
+
+        <button id="record">Start Recording</button>
+        <button id="download" disabled>Download</button>
+        <p>Audio cancellation: <input type="checkbox" id="echoCancellation"></p>
+        <span id="errorMsg"></span>
+        <br />
+
+        <h1> Sensor Data Collection : <span>Motion Capture</span></h1>
+        <h2> Read Data from Motion Sensors</h2>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>API used</td>
+                <td id="moApi">Sensors not detected</td>
+            </tr>
+            <tr>
+                <td>TimeStamp in [S]</td>
+                <td id="timeStamp">Current Time</td>
+            </tr>
+            <tr>
+                <td>Quaternion</td>
+                <td id="orSen">No Orientation Sensor</td>
+            </tr>
+            <tr>
+                <td>linear acceleration</td>
+                <td id="moAccel">No Accelermeter</td>
+            </tr>
+            <tr>
+                <td>linear velocity</td>
+                <td id="moVel">No Velocity</td>
+            </tr>
+            <tr>
+                <td>linear translation</td>
+                <td id="moTrans">No Translation</td>
+            </tr>
+
+        </table>
+
+        <table border="1">
+            <tr>
+                <td>Roll[Theta]</td>
+                <td>Pitch[Phi]</td>
+                <td>Yaw[Psi]</td>
+            </tr>
+            <tr>
+                <td id="theta">No Tilt</td>
+                <td id="phi">No Tilt</td>
+                <td id="psi">No Tilt</td>
+            </tr>
+        </table>
+
+        <div class="container" id="logoContainer">
+            <img src="camera.png" id="imgLogo">
+        </div>
+        <!--<input type="button" id="export" value="output" />-->
+
+        <!--<p id="RotSequence">I'm Here</p>
+        <br />
+        <p id="AccSequence">I'm Here too</p>-->
+
+        <br />
+        <h1> Sensor Data Collection : <span>Network State</span></h1>
+        <p> Current Network Connection Type is <b id="networkType">not available</b>.</p>
+        <p> Current Network Connection effective Type is <b id="effectiveNetworkType">not available</b>.</p>
+        <p> Current max download speed is <b id="downlinkMax">not available</b>.</p>
+
+    </div>
+
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+
+    <!--<script src="Sensor3.0.js"></script>-->
+    <script src="Network.js"></script>
+    <!--<script src="SaveStream.js"></script>-->
+    <script src="SaveData.js"></script>
+    <script src="CamSelect.js"></script>
+
+    <script src="FileSaver.js"></script>
+    <script type="text/javascript">
+
+
+
+    </script>
+</body>
+
+</html>
